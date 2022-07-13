@@ -6,7 +6,7 @@
 }
 
 .App-logo {
-  height: 30vmin;
+  height: 20vmin;
   pointer-events: none;
 }
 
@@ -41,3 +41,28 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+.info__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 50px;
+
+}
+
+.contact__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: smaller;
+  margin: 0;
+  font-weight: 300;
+}
+
+.text.link {
+  text-decoration: none;
+}
+
