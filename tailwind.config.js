@@ -43,6 +43,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         "gallery": "repeat(auto-fit, minmax(200px, 1fr))",
+        "services": "repeat(auto-fit, minmax(320px, 1fr))",
       },
       gridAutoRows: {
         'gallery': '250px',
