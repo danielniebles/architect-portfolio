@@ -1,15 +1,27 @@
-import { useState } from "react";
-import logo from "../assets/main_logo.svg";
-import "./App.css";
-import "./index.css";
+import { useState } from 'react';
+import logo from '../assets/main_logo.svg';
+import Card from './components/Card';
+import SectionTitle from './components/SectionTitle';
+import Header from './components/Header';
+import Gallery from './Sections/Gallery/Gallery';
+import Services from './Sections/Services/Services';
+import Footer from './Sections/Footer/Footer';
+
+import './App.css';
+import './index.css';
+import Banner from './Sections/Banner/Banner';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h4 style={{ fontWeight: 700 }}>Página en construcción...</h4>
+    <>
+      <Header />
+      <div className="flex min-h-screen flex-col bg-light-blue-900 text-base text-light-blue-900">
+        <Banner />
+        <Services />
+        <Gallery />
+        {/* <h4 style={{ fontWeight: 700 }}>Página en construcción...</h4>
         <img src={logo} className="App-logo" alt="logo" />
 
         <div className="info__container">
@@ -27,9 +39,10 @@ function App() {
               (+57) 300 373 4489
             </a>
           </div>
-        </div>
-      </header>
-    </div>
+        </div> */}
+      </div>
+      <Footer />
+    </>
   );
 }
 
