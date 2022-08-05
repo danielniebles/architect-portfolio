@@ -27,7 +27,7 @@ function App() {
             <i style={{marginRight: '16px'}} className="uil uil-whatsapp"></i>
             <a
               className="text link"
-              href="https://wa.link/ozr341"
+              href="https://wa.link/ofk0sn"
               target="_blank"
             >
               (+57) 311 398 8081
