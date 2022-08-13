@@ -1,14 +1,46 @@
+import { useEffect } from 'react';
+import useIsMobile from 'src/hooks/useIsMobile';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Controller } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 const PhotosGrid = ({ photosUrls }: { photosUrls: string[] }): JSX.Element => {
-  return (
+  const isMobile = useIsMobile();
+
+  return isMobile ? (
+    <div className="w-full">
+      <Swiper
+        modules={[Navigation, Pagination, Controller]}
+        className="images__swiper"
+        navigation
+        initialSlide={0}
+      >
+        {photosUrls.map((photoUrl, index) => (
+          <SwiperSlide key={index}>
+            <div className="item hover:opacity-1" key={index}>
+              <img
+                className="h-full w-[500px] max-w-none object-cover md:w-full"
+                src={photoUrl}
+                alt=""
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  ) : (
     <div
-      className='grid grid-flow-col overflow-y-auto snap-mandatory snap-x gap-1 overscroll-x-contain
-      md:grid-auto-rows md:grid md:w-6/12 md:grid-flow-row-dense md:auto-rows-gallery
-      md:grid-cols-gallery md:gap-2 md:overflow-y-hidden'
+      className="md:grid-auto-rows flex snap-x snap-mandatory
+      overflow-auto md:grid md:w-6/12 md:grid-flow-row-dense md:auto-rows-gallery
+      md:grid-cols-gallery md:gap-2 md:overflow-y-hidden"
     >
       {photosUrls.map((photoUrl, index) => (
-        <div className="item snap-start hover:opacity-1" key={index}>
+        <div className="item hover:opacity-1" key={index}>
           <img
-            className="h-full w-[500px] md:w-full max-w-none object-cover"
+            className="h-full w-[500px] max-w-none object-cover md:w-full"
             src={photoUrl}
             alt=""
           />
@@ -19,9 +51,3 @@ const PhotosGrid = ({ photosUrls }: { photosUrls: string[] }): JSX.Element => {
 };
 
 export default PhotosGrid;
-
-/* "grid-auto-rows grid w-6/12 grid-flow-row-dense auto-rows-gallery
-        grid-cols-gallery gap-2" */
-
-/* md:grid-auto-rows md:grid md:w-6/12 md:grid-flow-row-dense md:auto-rows-gallery
-      md:grid-cols-gallery md:gap-2 md:overflow-y-hidden*/
