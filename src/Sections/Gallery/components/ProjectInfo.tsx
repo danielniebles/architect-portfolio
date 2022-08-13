@@ -17,7 +17,7 @@ const ProjectInfo = (): JSX.Element => {
   return (
     <div className="mt-10 flex flex-col md:flex-row justify-center">
       <PhotosGrid photosUrls={IMGS_ARRAY} />
-      <div className="flex md:w-4/12 flex-col items-start justify-center p-5 touch-none">
+      <div className="flex md:w-4/12 flex-col items-start justify-center p-5">
         <SectionTitle customClass="mb-10 text-white">Arquitectura interior</SectionTitle>
         <p className="text-start text-white">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic harum recusandae

@@ -1,38 +1,81 @@
 @media screen and (min-width: 768px) {
-	.item:nth-child(11n + 1) {
-		grid-column: span 2;
-		grid-row: span 2;
+  .item:nth-child(11n + 1) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .item:nth-child(8n + 1) {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+  }
+
+  .item:nth-child(10n + 3) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+.project__swiper > .swiper-button-prev {
+  color: #a1a89b;
+	top: 100%;
+	position: relative;
+	margin-top: 10px
+}
+
+.project__swiper > .swiper-button-prev::before {
+  content: 'Anterior';
+	position: absolute;
+	left: 30px;
+}
+
+.project__swiper > .swiper-button-next {
+  color: #a1a89b;
+	top: -22px;
+	right: -90%;
+	position: relative;
+}
+
+.project__swiper > .swiper-button-next::before {
+  content: 'Siguiente';
+	position: absolute;
+	right: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .project__swiper .swiper-button-next {
+		color: #a1a89b;
+		top: -22px;
+		right: -100%;
+		position: relative;
+		left: 98%;
 	}
-
-	.item:nth-child(8n+1) {
-		grid-column-end: span 2;
-		grid-row-end: span 2;
-	}
-
-	.item:nth-child(10n + 3) {
-		grid-column: span 2;
-		grid-row: span 1;
-	}
 }
 
-.swiper-container {
-	scrollbar-color: transparent transparent !important;  /* thumb and track color */
-  scrollbar-width: 0px;
+.images__swiper .swiper-button-prev {
+  color: red;
+	background-image: url('assets/arrow-left.svg');
+	background-repeat: no-repeat;
+	background-size: 2.5rem 2.5rem;
+	background-position: center;
 }
 
-.swiper-container::-webkit-scrollbar {
-  width: 0;
+.images__swiper .swiper-button-prev::after {
+  content: '';
 }
 
-.swiper-container::-webkit-scrollbar-track {
-  background: transparent;
+.images__swiper .swiper-button-next {
+  color: red;
+	background-image: url('assets/arrow-right.svg');
+	background-repeat: no-repeat;
+	background-size: 2.5rem 2.5rem;
+	background-position: center;
 }
 
-.swiper-container::-webkit-scrollbar-thumb {
-  background: transparent;
-  border: none;
+.images__swiper .swiper-button-next::after {
+  content: '';
+	margin-right: 5px;
+	position:relative;
+	right: 5px;
 }
 
-.swiper-container {
-  -ms-overflow-style: none;
-}
+
