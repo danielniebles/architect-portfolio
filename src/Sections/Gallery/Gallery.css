@@ -14,3 +14,25 @@
 		grid-row: span 1;
 	}
 }
+
+.swiper-container {
+	scrollbar-color: transparent transparent !important;  /* thumb and track color */
+  scrollbar-width: 0px;
+}
+
+.swiper-container::-webkit-scrollbar {
+  width: 0;
+}
+
+.swiper-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.swiper-container::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+.swiper-container {
+  -ms-overflow-style: none;
+}
