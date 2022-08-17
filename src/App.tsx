@@ -4,6 +4,7 @@ import Card from './components/Card';
 import SectionTitle from './components/SectionTitle';
 import Header from './components/Header';
 import Gallery from './Sections/Gallery/Gallery';
+import Contact from './Sections/Contact';
 import Services from './Sections/Services/Services';
 import Footer from './Sections/Footer/Footer';
 
@@ -21,6 +22,7 @@ function App() {
         <Banner />
         <Services />
         <Gallery />
+        <Contact />
         {/* <h4 style={{ fontWeight: 700 }}>Página en construcción...</h4>
         <img src={logo} className="App-logo" alt="logo" />
 
