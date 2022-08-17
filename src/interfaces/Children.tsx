@@ -4,4 +4,5 @@ export default interface Children {
   imageUrl?: string,
   title?: string,
   textBackground?: string,
+  onClick?: () => void,
 }
