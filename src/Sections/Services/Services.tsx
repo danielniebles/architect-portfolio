@@ -5,7 +5,7 @@ const Services = (): JSX.Element => {
   return (
     <section className="flex w-full flex-col items-center justify-center py-20 bg-light-blue-900">
       <SectionTitle customClass="text-white">Nuestros servicios</SectionTitle>
-      <div className="mt-6 grid grid-cols-services grid-auto-rows grid-flow-row-dense px-4 w-full md:w-3/4 gap-5">
+      <div className="mt-6 grid grid-cols-services grid-auto-rows grid-flow-row-dense px-4 w-full md:w-3/4 gap-10 md:gap-5">
         <Card
           imageUrl="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_412,c_fill,g_auto,h_412,ar_1:1/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F201231114619-01-oz-ourdomain-student-housing.jpg"
           title="Diseño Arquitectónico"
