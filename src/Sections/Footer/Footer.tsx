@@ -3,7 +3,7 @@ import Title from '../../components/Title';
 const Footer = (): JSX.Element => {
   return (
     <footer className="footer flex flex-col items-center bg-light-blue py-10">
-      <div className="grid grid-cols-2 gap-10 py-10">
+      <div className="grid grid-cols-2 gap-10 py-10 px-4">
         <div>
           <Title>Javier Niebles</Title>
           <p>Arquitecto - Urbanista</p>
