@@ -5,4 +5,7 @@ export default interface Children {
   title?: string,
   textBackground?: string,
   onClick?: () => void,
+  link?: string,
+  target?: string,
+  icon?: string,
 }
