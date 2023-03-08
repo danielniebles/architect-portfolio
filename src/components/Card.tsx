@@ -1,49 +1,46 @@
-import { useState } from 'react';
-import Children from '../interfaces/Children';
 import LinkButton from './LinkButton';
-import Title from './Title';
 import './index.css';
+import Leaf from './Leaf';
 
-const Card = ({ imageUrl, title }: Children): JSX.Element => {
-  const [visibleInfo, setVisibleInfo] = useState(false);
+interface CardProps {
+  imageUrl: string;
+  title: string;
+  text?: string;
+  list?: string[];
+}
 
-  const onClick = () => setVisibleInfo(true);
-  const onClose = () => setVisibleInfo(false);
-
+const Card = ({ imageUrl, text, title, list = [] }: CardProps): JSX.Element => {
   return (
-    <div className="relative">
-      <div className="flex h-[60vh] items-center justify-center overflow-hidden">
-        <img src={imageUrl} className="h-full w-full object-cover"></img>
+    <div className="relative m-4 h-[600px] w-full  bg-white lg:w-[340px]">
+      <div className="h-[300px] overflow-hidden">
+        <img
+          src={imageUrl}
+          alt=""
+          className="h-full w-full object-cover transition-transform hover:scale-110"
+        />
       </div>
-
-      <div className="absolute inset-0 items-center bg-black bg-opacity-60">
-        <div
-          className={`flex ${visibleInfo ? 'h-full' : 'mt-5 h-20'}
-        relative w-full flex-col items-center justify-center
-        bg-black bg-opacity-40 transition-all duration-300 `}
-        >
-          <div className="service__title" onClick={onClick}>
-            <Title customClass={`text-white text-center mt-25 py-5`}>{title}</Title>
-            {!visibleInfo && (
-              <i className="uil uil-arrow-right service__icon ml-2 text-2xl text-white"></i>
-            )}
-          </div>
-          <div className={`${visibleInfo ? 'description__container' : 'hidden'}
-            flex flex-col items-center p-4`}>
-            <p
-              className={` text-white
-              transition duration-1000 text-center`}
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod numquam ipsum
-              consequatur rem aliquid commodi voluptatum, nemo vitae. Cum laudantium optio
-              tempora hic amet. Veniam voluptates quibusdam iure ad enim?
-            </p>
-            <i
-              className="uil uil-times absolute top-1.5 right-1.5 text-2xl text-white"
-              onClick={onClose}
-            ></i>
-            <LinkButton customClass='mt-10'>Ver más</LinkButton>
-          </div>
+      <div className="mt-6 pr-9 pl-9">
+        <h4 className="text-bold m-2 h-[60px] text-center font-[Montserrat] text-2xl text-title-gray">
+          {title}
+        </h4>
+        <p className="text-body-gray">{text}</p>
+        {Boolean(list.length) && (
+          <ul className="mt-6">
+            {list.map((item) => (
+              <li key={item}>
+                <div className="inline-flex h-2 text-body-gray">
+                  <Leaf
+                    color="#c3d500"
+                    style={{ height: '10px', marginTop: '7px', marginRight: '4px' }}
+                  />
+                  {item}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="absolute -bottom-2 right-0 flex w-full justify-center">
+          <LinkButton link="#contact" target="_self">Contratar</LinkButton>
         </div>
       </div>
     </div>

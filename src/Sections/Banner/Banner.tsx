@@ -1,20 +1,33 @@
-import PrimaryButton from '../../components/Button';
-import MainTitle from '../../components/MainTitle';
-import useHover from '../../hooks/useHover';
+import LinkButton from 'src/components/LinkButton';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
-const Banner = (): JSX.Element => {
+interface BannerProps {
+  setSectionInView: (value: string) => void;
+}
+
+const Banner = ({ setSectionInView }: BannerProps): JSX.Element => {
+  const { ref, inView } = useInView({ threshold: 1 });
+
+  useEffect(() => {
+    setSectionInView(inView ? 'banner' : '');
+  }, [inView]);
+
   return (
-    <section className="relative min-h-screen w-full">
-      <div className="flex min-h-screen bg-opacity-60 bg-building bg-repeat-round w-full">
-        <div className="absolute inset-0 flex items-center justify-end bg-black bg-opacity-60">
-          <div className="flex md:ml-3 md:w-1/3 flex-col items-start p-5">
-            <MainTitle customClass="text-white mb-4">Arquitectura moderna</MainTitle>
-            <p className="mb-3 text-white">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae numquam porro
-              inventore quam, obcaecati deleniti.
-            </p>
-            <PrimaryButton>Contáctanos</PrimaryButton>
-          </div>
+    <section className="relative w-full" id="home" ref={ref}>
+      <div className="flex h-[600px] w-full items-center justify-center bg-construction bg-center bg-repeat text-center md:h-[1000px]">
+        <div className="flex w-full flex-col items-center justify-center sm:max-w-[720px] md:max-w-[1140px]">
+          <h1 className="inline-block font-[Montserrat] text-4xl text-white md:text-6xl">
+            Diseña tus sueños renovando con nosotros
+          </h1>
+          <p className="m-[auto] pt-6 text-white md:w-[35rem]">
+            Ponemos a su disposición toda nuestra infraestructura física y profesional,
+            para acompañarlo en cada uno de los proyectos que emprenda en su compañía o, a
+            título personal, buscando con ello entregar siempre un excelente trabajo.
+          </p>
+          <LinkButton customClass="mt-6" link="#contact" target="_self">
+            Saber más
+          </LinkButton>
         </div>
       </div>
     </section>
