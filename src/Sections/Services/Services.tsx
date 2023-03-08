@@ -1,31 +1,90 @@
 import Card from '../../components/Card';
-import SectionTitle from '../../components/SectionTitle';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
-const Services = (): JSX.Element => {
+const Services = ({
+  setSectionInView,
+}: {
+  setSectionInView: (value: string) => void;
+}): JSX.Element => {
+  const { ref, inView } = useInView({ threshold: 0.3 });
+
+  useEffect(() => {
+    setSectionInView(inView ? 'services' : '');
+  }, [inView]);
+
   return (
-    <section className="flex w-full flex-col items-center justify-center py-20 bg-light-blue-900">
-      <SectionTitle customClass="text-white">Nuestros servicios</SectionTitle>
-      <div className="mt-6 grid grid-cols-services grid-auto-rows grid-flow-row-dense px-4 w-full md:w-3/4 gap-10 md:gap-5">
-        <Card
-          imageUrl="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_412,c_fill,g_auto,h_412,ar_1:1/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F201231114619-01-oz-ourdomain-student-housing.jpg"
-          title="Diseño Arquitectónico"
-          textBackground="bg-creamy"
-        />
-        <Card
-          imageUrl="https://contentgrid.thdstatic.com/hdus/en_US/DTCCOMNEW/fetch/NexGen/ContentPage/Drywall-Guide-2.jpg"
-          title="Instalación de Drywall"
-          textBackground="bg-light-blue"
-        />
-        <Card
-          imageUrl="https://www.anahuac.mx/mexico/posgrados/sites/default/files/course/maestria-en-arquitectura-y-diseno-de-interiores.jpg"
-          title="Arquitectura interiores"
-          textBackground="bg-creamy"
-        />
-        <Card
-          imageUrl="https://www.lavoz.com.ar/resizer/-WT0vBu4IeFHh7apgweU6R9tJeA=/1023x682/smart/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/DX57AEJPKNFGHIAMUSPFEV3WJU.jpg"
-          title="Impermeabilizaciones"
-          textBackground="bg-light-blue"
-        />
+    <section
+      className="relative m-auto flex w-full flex-wrap justify-center bg-[#efefef] p-2 pt-[7rem] pb-[7rem]"
+      id="services"
+      ref={ref}
+    >
+      <img
+        src="assets/leafs.svg"
+        className="absolute -left-[1%] top-[10%] h-[1000px] w-auto md:-top-[1%]"
+        alt=""
+      />
+      <div className="z-20 flex flex-col sm:max-w-[540px] lg:max-w-[1140px]">
+        <header className="mb-10 flex flex-col text-center">
+          <div className="text-sm font-bold text-terra-blue">SERVICIOS</div>
+          <h2 className="m-auto mb-2 w-full font-[Montserrat] text-3xl text-title-gray md:w-[35rem]">
+            Selecciona el paquete de servicios que se acomode a tu necesidad
+          </h2>
+        </header>
+        <div className="flex flex-wrap">
+          <Card
+            imageUrl="https://images.unsplash.com/photo-1574359411659-15573a27fd0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+            title="Restauración de fachadas"
+            list={[
+              'Pintura',
+              'Reparación de grietas',
+              'Lavado',
+              'Hidrofugado',
+              'Limpieza de vidrios',
+              'Cambio de piezas de enchape',
+            ]}
+          />
+          <Card
+            imageUrl="https://images.unsplash.com/photo-1561343228-e6a5c693d352?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            title="Trabajos en Alturas"
+            list={['Limpieza de cerchas', 'Techos', 'Tejas', 'Limpieza de Domos']}
+          />
+          <Card
+            imageUrl="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80"
+            title="Reformas"
+            list={[
+              'Instalación de pisos',
+              'Levantamiento de muros',
+              'Instalación de cielos rasos',
+              'Electricidad',
+              'Estuco y revoque',
+            ]}
+          />
+          <Card
+            imageUrl="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2662&q=80"
+            title="Diseño Arquitectónico"
+            list={[
+              'Diseño estructural',
+              'Diseño Sanitario',
+              'Trámite de licencias de construcción',
+            ]}
+          />
+          <Card
+            imageUrl="https://images.unsplash.com/photo-1593786267440-550458cc882a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
+            title="Obras de mediana escala"
+            list={[
+              'Fincas',
+              'Vivienda familiar',
+              'Zonas de recreo',
+              'Locales comerciales',
+            ]}
+          />
+          <Card
+            imageUrl="https://plus.unsplash.com/premium_photo-1663021816337-be7fb3833336?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+            title="Comunicaciones"
+            list={['Telefonía', 'Citofonía', 'CCTV', 'Cableado estructurado']}
+          />
+        </div>
       </div>
     </section>
   );
