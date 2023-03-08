@@ -1,16 +1,23 @@
-import SectionTitle from '../../components/SectionTitle';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Controller } from 'swiper';
-import Title from '../../components/Title';
 import LinkButton from '../../components/LinkButton';
 import { useEffect, useState } from 'react';
+import Input from '../../components/Input';
+import { useInView } from 'react-intersection-observer';
 
-const Contact = (): JSX.Element => {
+const Contact = ({
+  setSectionInView,
+}: {
+  setSectionInView: (value: string) => void;
+}): JSX.Element => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [project, setProject] = useState('');
   const [message, setMessage] = useState('');
   const [link, setLink] = useState('');
+  const { ref, inView } = useInView({ threshold: 1 });
+
+  useEffect(() => {
+    setSectionInView(inView ? 'contact' : '');
+  }, [inView]);
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -29,79 +36,64 @@ const Contact = (): JSX.Element => {
   };
 
   useEffect(() => {
-    setLink(`https://wa.me/573164424509?text=${`Nombre:%20${name}%0AEmail:%20${email}%0AProyecto:%20${project}%0AMessage:%20${encodeURIComponent(message)}`}`)
-  }, [name, email, project, message])
-
+    setLink(
+      `https://wa.me/573113988081?text=${`Nombre:%20${name}%0AEmail:%20${email}%0AProyecto:%20${project}%0AMessage:%20${encodeURIComponent(
+        message
+      )}`}`
+    );
+  }, [name, email, project, message]);
 
   return (
-    <section className="mb-10 flex flex-col items-center justify-center px-4">
-      <SectionTitle customClass="text-white mb-16">Contáctanos</SectionTitle>
-      <div className="mx-[auto] grid w-full md:max-w-screen-md md:grid-cols-2">
-        <div>
-          <div className="mb-8 flex">
-            <i className="uil uil-phone mr-3 text-2xl text-white"></i>
-            <div>
-              <Title customClass="text-white">Llámanos</Title>
-              <span className="text-sm text-white">123-456-789</span>
-            </div>
+    <section
+      className="flex justify-center bg-terra-blue-800 p-2 pt-[7rem] pb-[6rem]"
+      id="contact"
+      ref={ref}
+    >
+      <div className="flex flex-wrap justify-center sm:max-w-[540px] lg:max-w-[1140px]">
+        <div className="mb-14 mr-4 w-full lg:w-[40%]">
+          <div className="text-sm font-bold text-terra-green">CONTÁCTANOS</div>
+          <h2 className="mb-2 font-[Montserrat] text-3xl text-white">
+            Envíanos un mensaje llenando el formulario
+          </h2>
+          <p className="mb-2 mt-8 text-white">
+            Para nosotros es un placer atenderte. Por eso te ofrecemos diferentes medios
+            para responder a cada una de tus solicitudes de la manera que más te convenga
+          </p>
+          <div className="mt-8 flex items-center text-white">
+            <i className="uil uil-envelope mr-3 text-2xl text-terra-green"></i>
+            contacto@terraazul.co
           </div>
-          <div className="mb-8 flex">
-            <i className="uil uil-envelope mr-3 text-2xl text-white"></i>
-            <div>
-              <Title customClass="text-white">Email</Title>
-              <span className="text-sm text-white">alexa@email.com</span>
-            </div>
-          </div>
-          <div className="mb-8 flex">
-            <i className="uil uil-map-marker mr-3 text-2xl text-white"></i>
-            <div>
-              <Title customClass="text-white">Location</Title>
-              <span className="text-sm text-white">Medellin - Colombia</span>
-            </div>
+          <div className="flex items-center text-white">
+            <i className="uil uil-phone mr-3 text-2xl text-terra-green"></i>
+            311-398-80-81
           </div>
         </div>
-
-        <form className="grid gap-6 lg:w-[460px]">
-          <div className="flex flex-col rounded-lg bg-slate-400 p-[0.75rem_1rem_0.25rem]">
-            <label className="text-xs text-white">Nombre</label>
-            <input
-              type="text"
-              className="border-none bg-slate-400 pt-1 pr-2 pb-1 pl-0 outline-none"
-              value={name}
-              onChange={handleName}
-            />
-          </div>
-          <div className="flex flex-col rounded bg-slate-400 p-[0.75rem_1rem_0.25rem]">
-            <label className="text-xs text-white">Email</label>
-            <input
-              type="email"
-              className="border-none bg-slate-400 pt-1 pr-2 pb-1 pl-0 outline-none"
-              value={email}
-              onChange={handleEMail}
-            />
-          </div>
-          <div className="flex flex-col rounded bg-slate-400 p-[0.75rem_1rem_0.25rem]">
-            <label className="text-xs text-white">Proyecto</label>
-            <input
-              type="text"
-              className="border-none bg-slate-400 pt-1 pr-2 pb-1 pl-0 outline-none"
+        <div className="flex w-full justify-center p-2 lg:w-1/2">
+          <form className="grid w-full gap-6">
+            <Input value={name} onChange={handleName} type="text" label="Nombre" />
+            <Input value={email} onChange={handleEMail} type="email" label="E-Mail" />
+            <Input
               value={project}
               onChange={handleProject}
+              type="text"
+              label="Proyecto"
             />
-          </div>
-          <div className="flex flex-col rounded bg-slate-400 p-[0.75rem_1rem_0.25rem]">
-            <label className="text-xs text-white">Mensaje</label>
-            <textarea
-              name=""
-              id=""
-              rows={7}
-              className="border-none bg-slate-400 pt-1 pr-2 pb-1 pl-0 outline-none"
-              value={message}
-              onChange={handleMessage}
-            ></textarea>
-          </div>
-          <LinkButton link={link} icon='uil-message'>Enviar mensaje</LinkButton>
-        </form>
+            <div className="flex flex-col rounded border border-terra-blue bg-terra-blue p-[0.75rem_1rem_0.25rem]">
+              <label className="text-base font-normal text-white">Mensaje</label>
+              <textarea
+                name=""
+                id=""
+                rows={5}
+                className="resize-none border-none bg-terra-blue pt-1 pr-2 pb-1 pl-0 text-white outline-none"
+                value={message}
+                onChange={handleMessage}
+              ></textarea>
+            </div>
+            <LinkButton link={link} icon="uil-message" type="secondary">
+              Enviar mensaje
+            </LinkButton>
+          </form>
+        </div>
       </div>
     </section>
   );

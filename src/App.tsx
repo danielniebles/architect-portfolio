@@ -1,8 +1,8 @@
-import { useState } from "react";
-import logo from "../assets/main_logo.svg";
-import logoTerra from "../assets/logo_terra.svg";
-import "./App.css";
-import "./index.css";
+import { useState } from 'react';
+import logo from '../assets/main_logo.svg';
+import logoTerra from '../assets/logo_terra.svg';
+import './App.css';
+import './index.css';
 import Card from './components/Card';
 import SectionTitle from './components/SectionTitle';
 import Header from './components/Header';
@@ -14,43 +14,26 @@ import Footer from './Sections/Footer/Footer';
 import './App.css';
 import './index.css';
 import Banner from './Sections/Banner/Banner';
+import Presentation from './Sections/Presentation/Presentation';
+import Team from './Sections/Team/Team';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [sectionInView, setSectionInView] = useState('');
 
   return (
-    <>
-      <Header />
-      <div className="flex min-h-screen flex-col bg-light-blue-900 text-base text-light-blue-900">
-        <Banner />
-        <Services />
-        <Gallery />
-        <Contact />
-        {/* <h4 style={{ fontWeight: 700 }}>Página en construcción...</h4>
-        <img src={logo} className="App-logo" alt="logo" />
-        <div style={{borderLeft:'3px solid #454b4d', marginRight: '20px', marginLeft: '20px', backgroundColor: 'red'}}></div>
-        <img src={logoTerra} className="App-logo" alt="logo" />
-        </div>
-
-        <div className="info__container">
-          <div className="contact__item">
-            <i style={{marginRight: '16px'}} className="uil uil-envelope"></i>
-            <p className="text">contacto@javierniebles.com</p>
-          </div>
-          <div className="contact__item">
-            <i style={{marginRight: '16px'}} className="uil uil-whatsapp"></i>
-            <a
-              className="text link"
-              href="https://wa.link/ofk0sn"
-              target="_blank"
-            >
-              (+57) 311 398 8081
-            </a>
-          </div>
-        </div> */}
+    <div className='relative'>
+      <Header sectionInView={sectionInView} />
+      <div className="relative flex min-h-screen flex-col scroll-smooth bg-white text-base text-light-blue-900">
+        <Banner setSectionInView={setSectionInView} />
+        <Presentation setSectionInView={setSectionInView} />
+        <Services setSectionInView={setSectionInView} />
+        <Contact setSectionInView={setSectionInView} />
+        <Team setSectionInView={setSectionInView} />
+        <ScrollToTopButton />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
