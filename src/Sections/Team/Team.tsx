@@ -36,7 +36,7 @@ const Team = ({ setSectionInView }: { setSectionInView: (value: string) => void 
             <div className="mt-6 font-[Montserrat] text-base font-bold text-title-gray">
               Javier Niebles
             </div>
-            <div className="text-base text-title-gray">CEO</div>
+            <div className="text-base text-title-gray">Fundador</div>
           </div>
           <div className="flex flex-col text-center">
             <div className="h-[200px] w-[200px] overflow-hidden">

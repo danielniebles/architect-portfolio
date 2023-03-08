@@ -7,7 +7,7 @@ const Services = ({
 }: {
   setSectionInView: (value: string) => void;
 }): JSX.Element => {
-  const { ref, inView } = useInView({ threshold: 0.3 });
+  const { ref, inView } = useInView({ threshold: 0.5 });
 
   useEffect(() => {
     setSectionInView(inView ? 'services' : '');
@@ -40,8 +40,8 @@ const Services = ({
               'Reparación de grietas',
               'Lavado',
               'Hidrofugado',
-              'Limpieza de vidrios',
               'Cambio de piezas de enchape',
+              'Limpieza de vidrios',
             ]}
           />
           <Card

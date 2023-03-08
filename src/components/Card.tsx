@@ -28,11 +28,13 @@ const Card = ({ imageUrl, text, title, list = [] }: CardProps): JSX.Element => {
           <ul className="mt-6">
             {list.map((item) => (
               <li key={item}>
-                <div className="inline-flex h-2 text-body-gray">
-                  <Leaf
-                    color="#c3d500"
-                    style={{ height: '10px', marginTop: '7px', marginRight: '4px' }}
-                  />
+                <div className="flex text-body-gray">
+                  <div className="mr-1 w-[15px]">
+                    <Leaf
+                      color="#c3d500"
+                      style={{ height: '10px', marginTop: '7px', marginRight: '4px' }}
+                    />
+                  </div>
                   {item}
                 </div>
               </li>
@@ -40,7 +42,9 @@ const Card = ({ imageUrl, text, title, list = [] }: CardProps): JSX.Element => {
           </ul>
         )}
         <div className="absolute -bottom-2 right-0 flex w-full justify-center">
-          <LinkButton link="#contact" target="_self">Contratar</LinkButton>
+          <LinkButton link="#contact" target="_self">
+            Contratar
+          </LinkButton>
         </div>
       </div>
     </div>

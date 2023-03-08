@@ -1,9 +1,5 @@
-const Leaf = ({ color, style }: { color: string; style: React.CSSProperties }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="143.86 580.59 113.3 74"
-    style={style}
-  >
+const Leaf = ({ color, style }: { color: string; style?: React.CSSProperties }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="143.86 580.59 113.3 74" style={style}>
     <path
       xmlns="http://www.w3.org/2000/svg"
       style={{ fill: color }}
