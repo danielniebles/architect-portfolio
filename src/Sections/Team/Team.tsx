@@ -28,15 +28,15 @@ const Team = ({ setSectionInView }: { setSectionInView: (value: string) => void 
           <div className="flex flex-col text-center">
             <div className="relative h-[200px] w-[200px] overflow-hidden">
               <img
-                src="assets/profile/javier.jpg"
+                src="assets/profile/javier.jpeg"
                 alt=""
-                className="absolute -top-8 h-auto max-w-full object-cover"
+                className="absolute -top-14 h-auto max-w-full object-cover"
               />
             </div>
             <div className="mt-6 font-[Montserrat] text-base font-bold text-title-gray">
               Javier Niebles
             </div>
-            <div className="text-base text-title-gray">Fundador</div>
+            <div className="text-base text-title-gray">CEO</div>
           </div>
           <div className="flex flex-col text-center">
             <div className="h-[200px] w-[200px] overflow-hidden">

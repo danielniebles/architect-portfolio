@@ -13,13 +13,13 @@ const Footer = (): JSX.Element => {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-1">
-          <a className="text link" href="https://wa.link/ozr341" target="_blank">
+          <a className="text link" href="https://wa.me/573113988081" target="_blank">
             <i className="uil uil-whatsapp text-xl font-normal"></i>
           </a>
-          <a href="https://www.instagram.com/" target="_blank">
+          <a href="https://www.instagram.com/terraazulco" target="_blank">
             <i className="uil uil-instagram text-xl font-normal"></i>
           </a>
-          <a href="https://twitter.com/" target="_blank">
+          <a href="https://twitter.com/terraazul_co" target="_blank">
             <i className="uil uil-twitter-alt text-xl font-normal"></i>
           </a>
         </div>

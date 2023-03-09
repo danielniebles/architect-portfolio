@@ -20,12 +20,12 @@ const Card = ({ imageUrl, text, title, list = [] }: CardProps): JSX.Element => {
         />
       </div>
       <div className="mt-6 pr-9 pl-9">
-        <h4 className="text-bold m-2 h-[60px] text-center font-[Montserrat] text-2xl text-title-gray">
+        <h4 className="text-bold m-2 flex h-[60px] items-center justify-center text-center font-[Montserrat] text-2xl text-title-gray">
           {title}
         </h4>
         <p className="text-body-gray">{text}</p>
         {Boolean(list.length) && (
-          <ul className="mt-6">
+          <ul className="mt-4">
             {list.map((item) => (
               <li key={item}>
                 <div className="flex text-body-gray">

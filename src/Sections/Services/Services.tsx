@@ -58,6 +58,7 @@ const Services = ({
               'Instalación de cielos rasos',
               'Electricidad',
               'Estuco y revoque',
+              'Obra Seca (Drywall / SuperBoard)',
             ]}
           />
           <Card
