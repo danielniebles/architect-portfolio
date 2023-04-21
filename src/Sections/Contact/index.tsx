@@ -59,13 +59,39 @@ const Contact = ({
             Para nosotros es un placer atenderte. Por eso te ofrecemos diferentes medios
             para responder a cada una de tus solicitudes de la manera que más te convenga
           </p>
-          <div className="mt-8 flex items-center text-white">
+          <div className="mt-8 flex items-center text-xl text-white">
+            <a
+              className="text link flex items-center"
+              href="https://www.instagram.com/terraazulco"
+              target="_blank"
+            >
+              <i className="uil uil-instagram mr-3 text-2xl text-terra-green"></i>
+              terraazulco
+            </a>
+          </div>
+          <div className="flex items-center text-xl text-white">
+            <a
+              className="text link flex items-center"
+              href="https://twitter.com/terraazul_co"
+              target="_blank"
+            >
+              <i className="uil uil-twitter-alt mr-3 text-2xl text-terra-green"></i>
+              terraazul_co
+            </a>
+          </div>
+          <div className="flex items-center text-white">
             <i className="uil uil-envelope mr-3 text-2xl text-terra-green"></i>
             contacto@terraazul.co
           </div>
-          <div className="flex items-center text-white">
-            <i className="uil uil-phone mr-3 text-2xl text-terra-green"></i>
-            311-398-80-81
+          <div className="flex items-center text-xl text-white">
+            <a
+              className="text link flex items-center"
+              href="https://wa.me/573113988081"
+              target="_blank"
+            >
+              <i className="uil uil-whatsapp mr-3 text-2xl text-terra-green"></i>
+              311-398-80-81
+            </a>
           </div>
         </div>
         <div className="flex w-full justify-center p-2 lg:w-1/2">

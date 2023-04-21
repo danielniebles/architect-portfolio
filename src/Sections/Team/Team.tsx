@@ -30,7 +30,7 @@ const Team = ({ setSectionInView }: { setSectionInView: (value: string) => void 
               <img
                 src="assets/profile/javier.jpeg"
                 alt=""
-                className="absolute -top-14 h-auto max-w-full object-cover"
+                className="grayscale absolute -top-20 h-auto max-w-full object-cover"
               />
             </div>
             <div className="mt-6 font-[Montserrat] text-base font-bold text-title-gray">
@@ -43,7 +43,7 @@ const Team = ({ setSectionInView }: { setSectionInView: (value: string) => void 
               <img
                 src="assets/profile/maribel.jpeg"
                 alt=""
-                className="h-auto max-w-full object-cover"
+                className="grayscale h-auto max-w-full object-cover"
               />
             </div>
             <div className="mt-6 font-[Montserrat] text-base font-bold text-title-gray">
@@ -53,11 +53,11 @@ const Team = ({ setSectionInView }: { setSectionInView: (value: string) => void 
           </div>
 
           <div className="flex flex-col text-center">
-            <div className="h-[200px] w-[200px] overflow-hidden">
+            <div className="relative h-[200px] w-[200px] overflow-hidden">
               <img
                 src="assets/profile/juanCarlos.jpeg"
                 alt=""
-                className="h-auto max-w-full object-cover"
+                className="grayscale absolute scale-125 top-4 h-auto max-w-full object-cover"
               />
             </div>
             <div className="mt-6 font-[Montserrat] text-base font-bold text-title-gray">
