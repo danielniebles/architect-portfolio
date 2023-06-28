@@ -24,7 +24,7 @@ const Team = ({ setSectionInView }: { setSectionInView: (value: string) => void 
             Nuestro equipo de profesionales a tu disposición
           </p>
         </header>
-        <div className="flex flex-wrap justify-around gap-4">
+        <div className="flex flex-wrap justify-center gap-20">
           <div className="flex flex-col text-center">
             <div className="relative h-[200px] w-[200px] overflow-hidden">
               <img
@@ -50,20 +50,6 @@ const Team = ({ setSectionInView }: { setSectionInView: (value: string) => void 
               Maribel Soler
             </div>
             <div className="text-base text-title-gray">Gerente comercial</div>
-          </div>
-
-          <div className="flex flex-col text-center">
-            <div className="relative h-[200px] w-[200px] overflow-hidden">
-              <img
-                src="assets/profile/juanCarlos.jpeg"
-                alt=""
-                className="grayscale absolute scale-125 top-4 h-auto max-w-full object-cover"
-              />
-            </div>
-            <div className="mt-6 font-[Montserrat] text-base font-bold text-title-gray">
-              Juan Carlos Ariza
-            </div>
-            <div className="text-base text-title-gray">Gerente de Proyectos</div>
           </div>
         </div>
       </div>
