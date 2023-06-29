@@ -26,19 +26,6 @@ const Team = ({ setSectionInView }: { setSectionInView: (value: string) => void 
         </header>
         <div className="flex flex-wrap justify-center gap-20">
           <div className="flex flex-col text-center">
-            <div className="relative h-[200px] w-[200px] overflow-hidden">
-              <img
-                src="assets/profile/javier.jpeg"
-                alt=""
-                className="grayscale absolute -top-20 h-auto max-w-full object-cover"
-              />
-            </div>
-            <div className="mt-6 font-[Montserrat] text-base font-bold text-title-gray">
-              Javier Niebles
-            </div>
-            <div className="text-base text-title-gray">CEO</div>
-          </div>
-          <div className="flex flex-col text-center">
             <div className="h-[200px] w-[200px] overflow-hidden">
               <img
                 src="assets/profile/maribel.jpeg"
