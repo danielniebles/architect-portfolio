@@ -2,7 +2,7 @@ import Title from '../../components/Title';
 
 const Footer = (): JSX.Element => {
   return (
-    <footer className="footer flex flex-col items-center bg-terra-green-700 py-10">
+    <footer className="footer flex flex-col items-center bg-terra-green-700 py-10 w-full">
       <div className="grid grid-cols-2 gap-10 py-10 px-4 text-white">
         <div>
           <Title>Terra Azul</Title>

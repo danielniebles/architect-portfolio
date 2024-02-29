@@ -1,3 +1,5 @@
+import { Link } from 'wouter';
+
 interface LinkButtonProps {
   children?: React.ReactNode | React.ReactNode[];
   customClass?: string;
@@ -25,17 +27,15 @@ const LinkButton = ({
   const { color, hoverColor } = types[type];
 
   return (
-    <a
+    <Link
       className={`w-fit items-center rounded ${color} py-2
     px-4 text-base font-medium text-gray-50 shadow-sm
     hover:${hoverColor} hover:shadow-lg ${customClass}`}
-      href={link}
-      target={target}
-      onClick={onClick}
+      href={link as string}
     >
       {children}
       {icon && <i className={`uil ${icon} ml-2 text-xl`}></i>}
-    </a>
+    </Link>
   );
 };
 
