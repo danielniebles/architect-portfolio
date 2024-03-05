@@ -1,13 +1,11 @@
 import Card from '../../components/Card';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useLandingVideoContext } from '@/contexts/LandingVideoContext';
 
-const Services = ({
-  setSectionInView,
-}: {
-  setSectionInView: (value: string) => void;
-}): JSX.Element => {
+const Services = (): JSX.Element => {
   const { ref, inView } = useInView({ threshold: 0.5 });
+  const { setSectionInView } = useLandingVideoContext();
 
   useEffect(() => {
     setSectionInView(inView ? 'services' : '');

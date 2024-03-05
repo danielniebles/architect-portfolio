@@ -10,7 +10,7 @@ import Footer from '../sections/Footer';
 import { useLandingVideoContext } from '@/contexts/LandingVideoContext';
 
 export default function Main() {
-  const [sectionInView, setSectionInView] = useState('');
+  const { sectionInView } = useLandingVideoContext();
 
   return (
     <>
@@ -29,11 +29,11 @@ export default function Main() {
         ]}
       />
       <div className="text-light-blue-900 relative flex min-h-screen flex-col scroll-smooth bg-white text-base">
-        <Banner setSectionInView={setSectionInView} />
-        <Presentation setSectionInView={setSectionInView} />
-        <Services setSectionInView={setSectionInView} />
-        <Contact setSectionInView={setSectionInView} />
-        <Team setSectionInView={setSectionInView} />
+        <Banner />
+        <Presentation />
+        <Services />
+        <Contact />
+        <Team />
         <ScrollToTopButton />
       </div>
       <Footer />

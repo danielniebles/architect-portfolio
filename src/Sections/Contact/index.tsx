@@ -2,18 +2,16 @@ import LinkButton from '../../components/LinkButton';
 import { useEffect, useState } from 'react';
 import Input from '../../components/Input';
 import { useInView } from 'react-intersection-observer';
+import { useLandingVideoContext } from '@/contexts/LandingVideoContext';
 
-const Contact = ({
-  setSectionInView,
-}: {
-  setSectionInView: (value: string) => void;
-}): JSX.Element => {
+const Contact = (): JSX.Element => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [project, setProject] = useState('');
   const [message, setMessage] = useState('');
   const [link, setLink] = useState('');
   const { ref, inView } = useInView({ threshold: 1 });
+  const { setSectionInView } = useLandingVideoContext();
 
   useEffect(() => {
     setSectionInView(inView ? 'contact' : '');

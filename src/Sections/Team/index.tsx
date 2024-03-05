@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useLandingVideoContext } from '@/contexts/LandingVideoContext';
 
-const Team = ({ setSectionInView }: { setSectionInView: (value: string) => void }) => {
+const Team = () => {
   const { ref, inView } = useInView({ threshold: 1 });
+  const { setSectionInView } = useLandingVideoContext();
 
   useEffect(() => {
     setSectionInView(inView ? 'team' : '');

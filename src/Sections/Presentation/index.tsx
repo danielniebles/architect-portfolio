@@ -1,12 +1,10 @@
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useLandingVideoContext } from '@/contexts/LandingVideoContext';
 
-const Presentation = ({
-  setSectionInView,
-}: {
-  setSectionInView: (value: string) => void;
-}) => {
+const Presentation = () => {
   const { ref, inView } = useInView({ threshold: 1 });
+  const { setSectionInView } = useLandingVideoContext();
 
   useEffect(() => {
     setSectionInView(inView ? 'presentation' : '');
@@ -15,7 +13,8 @@ const Presentation = ({
   return (
     <section
       className="m-auto flex flex-wrap justify-center p-2 pt-[7rem] pb-[6rem] sm:max-w-[540px] lg:max-w-[1140px]"
-      id="presentation" ref={ref}
+      id="presentation"
+      ref={ref}
     >
       <div className="mb-14 mr-4 w-full lg:w-[40%]">
         <div className="text-sm font-bold text-terra-blue">TERRA AZUL</div>
