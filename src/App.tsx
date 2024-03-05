@@ -1,14 +1,17 @@
 import './App.css';
 import './index.css';
-import { Switch, Route } from 'wouter';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
-import Project from './pages/Project';
+import Project from './pages/projects/Project';
+import PJR from '@/config/projects/PJR.json';
 
 export default function App() {
   return (
-    <Switch>
-      <Route path="/" component={Main} />
-      <Route path="/projects" component={Project} />
-    </Switch>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />}></Route>
+        <Route path="/project/parroquia-jcr" element={<Project {...PJR} />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
