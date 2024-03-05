@@ -9,6 +9,9 @@ import ProjectBanner from './components/ProjectBanner';
 import DetailCard from './components/DetailCard';
 import ThumbsSwiper from '@/components/ThumbsSwiper';
 import HexagonLeaf from '@/components/HexagonLeaf';
+import { useInView } from 'react-intersection-observer';
+import { useLandingVideoContext } from '@/contexts/LandingVideoContext';
+import { useEffect } from 'react';
 
 const BASE_URL_THUMBNAIL = 'https://ik.imagekit.io/wbjodg09y/tr:w-200,h-200';
 const BASE_URL = 'https://ik.imagekit.io/wbjodg09y/tr:w-1200,h-900';
@@ -47,10 +50,28 @@ const Project = (projectInfo: ProjectProps) => {
     routeName,
   } = projectInfo;
   const { responsible, city, neighborhood, area, year } = projectDetails;
+  const { sectionInView, setSectionInView } = useLandingVideoContext();
+
+  const { ref: homeRef, inView: homeInView } = useInView({ threshold: 1 });
+  const { ref: resultsRef, inView: resultsInView } = useInView({ threshold: 1 });
+  const { ref: socialRef, inView: socialInView } = useInView({ threshold: 1 });
+
+  useEffect(() => {
+    setSectionInView(homeInView ? 'home' : '');
+  }, [homeInView]);
+
+  useEffect(() => {
+    setSectionInView(resultsInView ? 'results' : '');
+  }, [resultsInView]);
+
+  useEffect(() => {
+    setSectionInView(socialInView ? 'social' : '');
+  }, [socialInView]);
+
   return (
     <>
       <Header
-        sectionInView={''}
+        sectionInView={sectionInView}
         links={[
           { displayName: 'Inicio', name: 'home', link: `/project/${routeName}#home` },
           {
@@ -68,7 +89,10 @@ const Project = (projectInfo: ProjectProps) => {
       />
       <div className="mt-20 flex h-[100vh] w-full flex-col items-center">
         <ProjectBanner backgroundUrl={bannerUrl} name={projectName} />
-        <section className="mt-10 grid w-full grid-cols-1 p-5 sm:max-w-[540px] md:grid-cols-3 lg:max-w-[1140px]">
+        <section
+          className="mt-10 grid w-full grid-cols-1 p-5 sm:max-w-[540px] md:grid-cols-3 lg:max-w-[1140px]"
+          ref={homeRef}
+        >
           <DetailCard
             responsible={responsible}
             city={city}
@@ -81,7 +105,11 @@ const Project = (projectInfo: ProjectProps) => {
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </section>
-        <section className="flex w-full justify-center bg-[#efefef]" id="results">
+        <section
+          className="flex w-full justify-center bg-[#efefef]"
+          id="results"
+          ref={resultsRef}
+        >
           <div className="p-2 pt-8 sm:max-w-[540px] md:grid-cols-1 md:pt-16 lg:max-w-[1140px]">
             <header className="mb-10 flex flex-col text-center">
               <div className="text-sm font-bold text-terra-blue">RESULTADOS</div>
@@ -115,7 +143,7 @@ const Project = (projectInfo: ProjectProps) => {
           className="absolute -left-[1%] top-[10%] h-[1000px] w-auto md:top-[70%]"
           alt=""
         />
-        <section className="flex w-full p-2 pt-12 pb-4" id="social">
+        <section className="flex w-full p-2 pt-12 pb-4" id="social" ref={socialRef}>
           <div className="m-auto flex flex-wrap sm:max-w-[540px] lg:max-w-[1140px]">
             <div className="flex w-full justify-center md:w-1/2">
               <InstagramEmbed url={instagramReelUrl} width={328} />

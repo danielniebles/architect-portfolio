@@ -1,3 +1,5 @@
+import { LegacyRef } from 'react';
+
 interface ProjectBannerProps {
   backgroundUrl: string;
   name: string;
@@ -5,7 +7,10 @@ interface ProjectBannerProps {
 
 const ProjectBanner = ({ backgroundUrl, name }: ProjectBannerProps) => {
   return (
-    <section className="flex w-full justify-center p-5 sm:max-w-[540px] lg:max-w-[1140px] font-bold" id="home">
+    <section
+      className="flex w-full justify-center p-5 font-bold sm:max-w-[540px] lg:max-w-[1140px]"
+      id="home"
+    >
       <div
         className={`flex h-[300px] w-full items-end justify-start rounded-xl bg-[url(${backgroundUrl})] bg-bottom bg-repeat`}
       >

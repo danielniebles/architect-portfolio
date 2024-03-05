@@ -1,10 +1,19 @@
 import VideoDrape from '@/components/VideoDrape';
 import { createContext, useContext, useEffect, useState } from 'react';
 
-const LandingVideoContext = createContext({ isMainPageVisible: false });
+const LandingVideoContext = createContext<{
+  isMainPageVisible: boolean;
+  sectionInView: string;
+  setSectionInView: React.Dispatch<React.SetStateAction<string>>;
+}>({
+  isMainPageVisible: false,
+  sectionInView: '',
+  setSectionInView: () => {},
+});
 
 const LandingVideoProvider = ({ children }: any) => {
   const [isMainPageVisible, setIsMainPageVisible] = useState(false);
+  const [sectionInView, setSectionInView] = useState('');
 
   useEffect(() => {
     const landingVideoEl = document.getElementById('landing') as HTMLElement;
@@ -20,10 +29,12 @@ const LandingVideoProvider = ({ children }: any) => {
   }, []);
 
   return (
-    <LandingVideoContext.Provider value={{ isMainPageVisible }}>
+    <LandingVideoContext.Provider
+      value={{ isMainPageVisible, sectionInView, setSectionInView }}
+    >
       <div className="relative">
         <VideoDrape isVisible={isMainPageVisible} />
-        {children}
+        {isMainPageVisible && children}
       </div>
     </LandingVideoContext.Provider>
   );
