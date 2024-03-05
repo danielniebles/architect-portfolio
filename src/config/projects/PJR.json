@@ -1,0 +1,31 @@
+{
+  "projectName": "Parroquia Jesucristo Redentor",
+  "photos": [
+    {
+      "name": "door_before.jpg",
+      "type": "before"
+    },
+    {
+      "name": "door_after.JPG",
+      "type": "after"
+    },
+    {
+      "name": "adoquin_antes.jpg",
+      "type": "before"
+    },
+    {
+      "name": "adoquin_final.jpg",
+      "type": "after"
+    }
+  ],
+  "description": "La Parroquia Jesucristo Redentor solicito una solución de almacenamiento para los elementos religiosos utilizados durante las diferentes celebraciones litúrgicas, sobre la base de una idea inicial  mezannine en madera, la solución se resolvió con una estructura en acero estructural, elementos de cubrimiento, iluminación y apoyo para la elevación de objetos pesados.<br><br>A partir de esta primera solución se atendieron otras necesidades de la parroquia, como la remodelación de los baños, las oficinas, el traslado del despacho parroquial, la insonorización de las ventanas de la casa rural, construcción de un sendero peatonal, rampas de acceso, adoquinado y un sistema automatizado para el acceso a las instalaciones de la parroquia, dando como resultado espacios modernos y renovados que a atienden las diferentes necesidades de la comunidad.",
+  "projectDetails": {
+    "responsible": "Arq. Javier Niebles",
+    "city": "Bogotá",
+    "neighborhood": "Mazurén",
+    "area": "2000 m²",
+    "year": "2023"
+  },
+  "bannerUrl": "https://terra-azul-s3.s3.amazonaws.com/finished-projects/panoramic.jpg",
+  "instagramReelUrl": "https://www.instagram.com/reel/C3lcuq8pTZQ/?utm_source=ig_web_copy_link"
+}

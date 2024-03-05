@@ -8,84 +8,88 @@ import Header from '@/components/Header';
 import ProjectBanner from './components/ProjectBanner';
 import DetailCard from './components/DetailCard';
 import ThumbsSwiper from '@/components/ThumbsSwiper';
+import HexagonLeaf from '@/components/HexagonLeaf';
 
 const BASE_URL_THUMBNAIL = 'https://ik.imagekit.io/wbjodg09y/tr:w-200,h-200';
 const BASE_URL = 'https://ik.imagekit.io/wbjodg09y/tr:w-1200,h-900';
-const config = {
-  swiper: {
-    images: [
-      {
-        name: 'door_before.jpg',
-        type: 'before',
-      },
-      {
-        name: 'door_after.JPG',
-        type: 'after',
-      },
-      {
-        name: 'adoquin_antes.jpg',
-        type: 'before',
-      },
-      {
-        name: 'adoquin_final.jpg',
-        type: 'after',
-      },
-    ],
-  },
-};
 
-const Project = () => {
+export interface ProjectProps {
+  bannerUrl: string;
+  description: string;
+  instagramReelUrl: string;
+  photos: Photo[];
+  projectDetails: ProjectDetails;
+  projectName: string;
+}
+
+export interface Photo {
+  name: string;
+  type: string;
+}
+
+export interface ProjectDetails {
+  responsible: string;
+  city: string;
+  neighborhood: string;
+  area: string;
+  year: string;
+}
+
+const Project = (projectInfo: ProjectProps) => {
+  const {
+    bannerUrl,
+    description,
+    instagramReelUrl,
+    photos,
+    projectDetails,
+    projectName,
+  } = projectInfo;
+  const { responsible, city, neighborhood, area, year } = projectDetails;
   return (
     <>
       <Header sectionInView={''} />
       <div className="mt-20 flex h-[100vh] w-full flex-col items-center">
-        <ProjectBanner
-          backgroundUrl="https://terra-azul-s3.s3.amazonaws.com/finished-projects/panoramic.jpg"
-          name="Parroquia Jesucristo Redentor"
-        />
+        <ProjectBanner backgroundUrl={bannerUrl} name={projectName} />
         <section className="mt-10 grid w-full grid-cols-1 p-5 sm:max-w-[540px] md:grid-cols-3 lg:max-w-[1140px]">
           <DetailCard
-            responsible="Arq. Javier Niebles"
-            city="Bogotá"
-            neighborhood="Mazurén"
-            area="2000 m²"
-            year="2023"
+            responsible={responsible}
+            city={city}
+            neighborhood={neighborhood}
+            area={area}
+            year={year}
           />
-
-          <article className="p-5 md:col-span-2">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit ratione
-            libero aut aperiam eos repellendus debitis autem temporibus similique.
-            Corrupti expedita totam distinctio dolorum ab deserunt saepe maiores ullam
-            minima. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-            illum iste nostrum tenetur quae eaque laborum quasi, quibusdam enim sint
-            eveniet animi voluptatibus, veniam commodi, soluta doloribus earum similique
-            ut.
-          </article>
+          <article
+            className="p-5 text-justify font-medium md:col-span-2"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </section>
         <section className="flex w-full justify-center bg-[#efefef]">
-          <div className="grid grid-cols-1 gap-2 p-2 pt-8 sm:max-w-[540px] md:grid-cols-1 md:p-2 lg:max-w-[1140px]">
-            <div className="my-12 rounded-xl bg-terra-green-300 p-4">
-              <ThumbsSwiper
-                thumbnailUrl={config.swiper.images.map(
-                  ({ name }) => `${BASE_URL_THUMBNAIL}/${name}`
-                )}
-              >
-                {config.swiper.images.map(({ name, type }) => (
-                  <aside className="relative h-full">
-                    <img
-                      className="h-full w-full rounded-xl  object-cover"
-                      src={`${BASE_URL}/${name}`}
-                    />
-                    <footer
-                      className="absolute bottom-0 w-full rounded-xl
-                            bg-gradient-to-b from-transparent to-black p-2 text-white"
-                    >
-                      {type === 'before' ? 'Antes' : 'Después'}
-                    </footer>
-                  </aside>
-                ))}
-              </ThumbsSwiper>
-            </div>
+          <div className="p-2 pt-8 sm:max-w-[540px] md:grid-cols-1 md:pt-16 lg:max-w-[1140px]">
+            <header className="mb-10 flex flex-col text-center">
+              <div className="text-sm font-bold text-terra-blue">RESULTADOS</div>
+              <h2 className="m-auto mb-2 w-full text-3xl font-bold text-title-gray md:w-[35rem]">
+                Te mostramos algunos resultados de este proyecto
+              </h2>
+            </header>
+            <ThumbsSwiper
+              thumbnailUrl={photos.map(({ name }) => `${BASE_URL_THUMBNAIL}/${name}`)}
+              backgroundColor="bg-terra-green-300"
+            >
+              {photos.map(({ name, type }) => (
+                <aside className="relative h-full">
+                  <img
+                    className="h-full w-full rounded-xl  object-cover"
+                    src={`${BASE_URL}/${name}`}
+                  />
+                  <footer
+                    className="absolute bottom-0 w-full rounded-xl
+                            bg-gradient-to-b from-transparent to-black p-2 font-bold text-white"
+                  >
+                    {type === 'before' ? 'Antes' : 'Después'}
+                  </footer>
+                </aside>
+              ))}
+            </ThumbsSwiper>
           </div>
         </section>
         <img
@@ -95,25 +99,17 @@ const Project = () => {
         />
         <section className="flex w-full p-2 pt-12 pb-4">
           <div className="m-auto flex flex-wrap sm:max-w-[540px] lg:max-w-[1140px]">
-            <div
-              className="w-full md:w-1/2"
-              style={{ display: 'flex', justifyContent: 'center' }}
-            >
-              <InstagramEmbed
-                url="https://www.instagram.com/reel/C3lcuq8pTZQ/?utm_source=ig_web_copy_link"
-                width={328}
-              />
+            <div className="flex w-full justify-center md:w-1/2">
+              <InstagramEmbed url={instagramReelUrl} width={328} />
             </div>
-            <div className="flex w-full flex-col justify-center text-white md:w-1/2">
-              <h2 className="mb-10 font-[Montserrat] text-3xl text-title-gray">
-                Revisa los resultados en nuestras redes sociales
+            <div className="flex w-full flex-col items-center justify-center text-white md:w-1/2">
+              <HexagonLeaf hexagonColor="bg-terra-green" leafColor="white" />
+              <h2 className="mb-10 text-center text-3xl font-medium text-title-gray">
+                Visítanos en nuestras redes sociales para más información y detalles
               </h2>
-              <p className="text mb-2 text-body-gray">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, odit
-                molestias consequatur possimus quo impedit in, nisi voluptatibus repellat
-                vel perferendis non reprehenderit eos architecto ipsum facere magni
-                laudantium pariatur.
-              </p>
+              <article className="text-center font-medium text-body-gray">
+                No te pierdas ningún detalle de nuestra próxima renovación.
+              </article>
             </div>
           </div>
         </section>

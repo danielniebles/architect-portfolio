@@ -5,7 +5,7 @@ interface ProjectBannerProps {
 
 const ProjectBanner = ({ backgroundUrl, name }: ProjectBannerProps) => {
   return (
-    <section className="flex w-full justify-center p-5 sm:max-w-[540px] lg:max-w-[1140px]">
+    <section className="flex w-full justify-center p-5 sm:max-w-[540px] lg:max-w-[1140px] font-bold">
       <div
         className={`flex h-[300px] w-full items-end justify-start rounded-xl bg-[url(${backgroundUrl})] bg-bottom bg-repeat`}
       >

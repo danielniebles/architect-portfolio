@@ -10,12 +10,13 @@ import React, { useState } from 'react';
 interface ThumbsSwiperProps {
   children: React.ReactNode | React.ReactNode[];
   thumbnailUrl: string[];
+  backgroundColor: string;
 }
 
-const ThumbsSwiper = ({ children, thumbnailUrl }: ThumbsSwiperProps) => {
+const ThumbsSwiper = ({ backgroundColor, children, thumbnailUrl }: ThumbsSwiperProps) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   return (
-    <>
+    <div className={`my-12 rounded-xl ${backgroundColor} p-4`}>
       <Swiper
         style={{
           '--swiper-navigation-color': '#fff',
@@ -30,10 +31,13 @@ const ThumbsSwiper = ({ children, thumbnailUrl }: ThumbsSwiperProps) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="h-[600px]"
         slidesPerView={2}
-
       >
         {React.Children.map(children, (child, index) => {
-          return <SwiperSlide className="aspect-square" key={index}>{child}</SwiperSlide>;
+          return (
+            <SwiperSlide className="aspect-square" key={index}>
+              {child}
+            </SwiperSlide>
+          );
         })}
       </Swiper>
       <Swiper
@@ -51,7 +55,7 @@ const ThumbsSwiper = ({ children, thumbnailUrl }: ThumbsSwiperProps) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 };
 
