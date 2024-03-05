@@ -1,10 +1,25 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useIsMobile from '../hooks/useIsMobile';
+import { HashLink } from 'react-router-hash-link';
 
+interface HeaderProps {
+  links: {
+    displayName: string;
+    name: string;
+    link: string;
+  }[];
+  sectionInView: string;
+  transparent?: boolean;
+}
 const LINK_CLASS =
   "p-1 relative after:transition-transform after:duration-300 after:ease-out after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-terra-green after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100";
 
-const Header = ({ sectionInView }: { sectionInView: string }): JSX.Element => {
+const Header = ({
+  sectionInView,
+  links,
+  transparent = true,
+}: HeaderProps): JSX.Element => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const isMobile = useIsMobile();
@@ -29,13 +44,15 @@ const Header = ({ sectionInView }: { sectionInView: string }): JSX.Element => {
     <header
       className={`fixed top-0 z-50 w-full pb-2 shadow-xl transition-all duration-500
       ${
-        isScrolled
+        isScrolled || !transparent
           ? 'bg-white pt-5 text-white shadow-xl'
-          : 'border-b bg-transparent pt-7 '
+          : 'pt-7 backdrop-blur-sm '
       }`}
     >
       <nav className="m-[auto] flex items-center justify-between md:max-w-[1140px]">
-        <img src="assets/logo_terra.svg" className="ml-4 h-12"></img>
+        <Link to="/">
+          <img src="/assets/logo_terra.svg" className="ml-4 h-12"></img>
+        </Link>
         <div
           className={`fixed flex w-full flex-col md:relative md:w-2/4 ${
             showMenu ? 'top-0' : '-top-full'
@@ -49,54 +66,23 @@ const Header = ({ sectionInView }: { sectionInView: string }): JSX.Element => {
             className="flex flex-col items-center gap-2 bg-white
             p-10 md:flex-row md:justify-end md:bg-transparent md:p-0 "
           >
-            <a
-              className={`${LINK_CLASS} ${
-                sectionInView === 'banner' && 'after:origin-bottom-left after:scale-x-100'
-              } ${isScrolled || isMobile ? 'text-gray-800' : 'text-white'}`}
-              href="#home"
-              onClick={() => handleCloseMenu()}
-            >
-              Inicio
-            </a>
-            <a
-              className={`${LINK_CLASS} ${
-                sectionInView === 'presentation' &&
-                'after:origin-bottom-left after:scale-x-100'
-              } ${isScrolled || isMobile ? 'text-gray-800' : 'text-white'}`}
-              href="#presentation"
-              onClick={() => handleCloseMenu()}
-            >
-              Quiénes somos
-            </a>
-            <a
-              className={`${LINK_CLASS} ${
-                sectionInView === 'services' &&
-                'after:origin-bottom-left after:scale-x-100'
-              } ${isScrolled || isMobile ? 'text-gray-800' : 'text-white'}`}
-              href="#services"
-              onClick={() => handleCloseMenu()}
-            >
-              Servicios
-            </a>
-            <a
-              className={`${LINK_CLASS} ${
-                sectionInView === 'contact' &&
-                'after:origin-bottom-left after:scale-x-100'
-              } ${isScrolled || isMobile ? 'text-gray-800' : 'text-white'}`}
-              href="#contact"
-              onClick={() => handleCloseMenu()}
-            >
-              Contáctanos
-            </a>
-            <a
-              className={`${LINK_CLASS} ${
-                sectionInView === 'team' && 'after:origin-bottom-left after:scale-x-100'
-              } ${isScrolled || isMobile ? 'text-gray-800' : 'text-white'}`}
-              href="#team"
-              onClick={() => handleCloseMenu()}
-            >
-              Nosotros
-            </a>
+            {links.map(({ displayName, name, link }) => (
+              <HashLink
+                className={`${LINK_CLASS} ${
+                  sectionInView === name && 'after:origin-bottom-left after:scale-x-100'
+                } ${
+                  isScrolled || isMobile || !transparent
+                    ? 'font-semibold text-gray-800'
+                    : 'font-semibold text-white'
+                }`}
+                to={link}
+                onClick={() => handleCloseMenu()}
+                key={link}
+                smooth
+              >
+                {displayName}
+              </HashLink>
+            ))}
           </ul>
           <button
             className="absolute top-1 right-1 md:hidden"

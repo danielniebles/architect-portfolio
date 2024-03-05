@@ -9,7 +9,7 @@ const Footer = (): JSX.Element => {
           <p>Es una marca registrada de:</p>
           <div className='flex justify-center mt-4'>
 
-          <img className='h-[80px]' src="assets/JN/main_logo.svg" alt="" />
+          <img className='h-[80px]' src="/assets/JN/main_logo.svg" alt="" />
           </div>
         </div>
         <div className="grid grid-cols-3 gap-1">

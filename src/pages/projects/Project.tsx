@@ -20,6 +20,7 @@ export interface ProjectProps {
   photos: Photo[];
   projectDetails: ProjectDetails;
   projectName: string;
+  routeName: string;
 }
 
 export interface Photo {
@@ -43,11 +44,28 @@ const Project = (projectInfo: ProjectProps) => {
     photos,
     projectDetails,
     projectName,
+    routeName,
   } = projectInfo;
   const { responsible, city, neighborhood, area, year } = projectDetails;
   return (
     <>
-      <Header sectionInView={''} />
+      <Header
+        sectionInView={''}
+        links={[
+          { displayName: 'Inicio', name: 'home', link: `/project/${routeName}#home` },
+          {
+            displayName: 'Resultados',
+            name: 'results',
+            link: `/project/${routeName}#results`,
+          },
+          {
+            displayName: 'Social',
+            name: 'social',
+            link: `/project/${routeName}#social`,
+          },
+        ]}
+        transparent={false}
+      />
       <div className="mt-20 flex h-[100vh] w-full flex-col items-center">
         <ProjectBanner backgroundUrl={bannerUrl} name={projectName} />
         <section className="mt-10 grid w-full grid-cols-1 p-5 sm:max-w-[540px] md:grid-cols-3 lg:max-w-[1140px]">
@@ -63,7 +81,7 @@ const Project = (projectInfo: ProjectProps) => {
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </section>
-        <section className="flex w-full justify-center bg-[#efefef]">
+        <section className="flex w-full justify-center bg-[#efefef]" id="results">
           <div className="p-2 pt-8 sm:max-w-[540px] md:grid-cols-1 md:pt-16 lg:max-w-[1140px]">
             <header className="mb-10 flex flex-col text-center">
               <div className="text-sm font-bold text-terra-blue">RESULTADOS</div>
@@ -97,7 +115,7 @@ const Project = (projectInfo: ProjectProps) => {
           className="absolute -left-[1%] top-[10%] h-[1000px] w-auto md:top-[70%]"
           alt=""
         />
-        <section className="flex w-full p-2 pt-12 pb-4">
+        <section className="flex w-full p-2 pt-12 pb-4" id="social">
           <div className="m-auto flex flex-wrap sm:max-w-[540px] lg:max-w-[1140px]">
             <div className="flex w-full justify-center md:w-1/2">
               <InstagramEmbed url={instagramReelUrl} width={328} />
