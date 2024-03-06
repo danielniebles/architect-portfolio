@@ -55,11 +55,11 @@ const Header = ({
         </Link>
         <div
           className={`fixed flex w-full flex-col md:relative md:w-2/4 ${
-            showMenu ? 'top-0' : '-top-full'
+            showMenu ? 'top-0' : '-top-[400%]'
           } text-gray-800 shadow-xl transition-all duration-500 md:top-0 md:mx-4 md:shadow-none`}
         >
           <img
-            src="assets/logo_terra.svg"
+            src="/assets/logo_terra.svg"
             className="absolute top-2 left-2 h-10 md:hidden"
           ></img>
           <ul
@@ -94,7 +94,7 @@ const Header = ({
         <button className="mr-4 md:hidden" onClick={() => handleShowMenu()}>
           <i
             className={`uil uil-bars text-2xl font-normal ${
-              isScrolled ? 'text-gray-800' : 'text-white'
+              isScrolled || !transparent ? 'text-gray-800' : 'text-white'
             }`}
           ></i>
         </button>

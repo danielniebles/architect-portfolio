@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import 'swiper/css/free-mode';
 import React, { useState } from 'react';
+import useIsMobile from '@/hooks/useIsMobile';
 
 interface ThumbsSwiperProps {
   children: React.ReactNode | React.ReactNode[];
@@ -15,22 +16,25 @@ interface ThumbsSwiperProps {
 
 const ThumbsSwiper = ({ backgroundColor, children, thumbnailUrl }: ThumbsSwiperProps) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
+  const isMobile = useIsMobile();
   return (
-    <div className={`my-12 rounded-xl ${backgroundColor} p-4`}>
+    <div
+      className={`my-4 rounded-xl md:my-12 ${backgroundColor} w-[390px] p-4 md:w-full`}
+    >
       <Swiper
         style={{
           '--swiper-navigation-color': '#fff',
           '--swiper-pagination-color': '#fff',
         }}
-        loop={true}
         spaceBetween={10}
         navigation={true}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="h-[600px]"
-        slidesPerView={2}
+        className="h-[400px] md:h-[600px]"
+        slidesPerView={isMobile ? 1 : 2}
+        slidesPerGroup={isMobile ? 1 : 2}
       >
         {React.Children.map(children, (child, index) => {
           return (
@@ -43,11 +47,11 @@ const ThumbsSwiper = ({ backgroundColor, children, thumbnailUrl }: ThumbsSwiperP
       <Swiper
         onSwiper={setThumbsSwiper}
         spaceBetween={10}
-        slidesPerView={4}
+        slidesPerView={isMobile ? 2 : 5}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="m-4 max-h-[180px] max-w-2xl"
+        className="m-4 h-[120px] md:h-[200px]"
       >
         {thumbnailUrl.map((url) => (
           <SwiperSlide className="aspect-square" key={url}>

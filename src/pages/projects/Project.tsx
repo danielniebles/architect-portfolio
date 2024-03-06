@@ -114,7 +114,7 @@ const Project = (projectInfo: ProjectProps) => {
           id="results"
           ref={resultsRef}
         >
-          <div className="p-2 pt-8 sm:max-w-[540px] md:grid-cols-1 md:pt-16 lg:max-w-[1140px]">
+          <div className="flex flex-col items-center p-2 pt-8 md:pt-16 lg:max-w-[1140px]">
             <header className="mb-10 flex flex-col text-center">
               <div className="text-sm font-bold text-terra-blue">RESULTADOS</div>
               <h2 className="m-auto mb-2 w-full text-3xl font-bold text-title-gray md:w-[35rem]">
@@ -144,12 +144,12 @@ const Project = (projectInfo: ProjectProps) => {
         </section>
         <img
           src="/assets/leafs.svg"
-          className="absolute -left-[1%] top-[10%] h-[1000px] w-auto md:top-[70%]"
+          className="absolute -left-[1%] top-[150%] h-[700px] w-auto md:top-[70%] md:h-[1000px]"
           alt=""
         />
         <section className="flex w-full p-2 pt-12 pb-4" id="social" ref={socialRef}>
           <div className="m-auto flex flex-wrap sm:max-w-[540px] lg:max-w-[1140px]">
-            <div className="flex w-full justify-center md:w-1/2">
+            <div className="z-10 flex w-full justify-center md:w-1/2">
               <InstagramEmbed url={instagramReelUrl} width={328} />
             </div>
             <div className="flex w-full flex-col items-center justify-center text-white md:w-1/2">
