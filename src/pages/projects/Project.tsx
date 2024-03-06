@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import 'swiper/css/free-mode';
-import Footer from '../../sections/Footer';
+import Footer from '@/pages/home/sections/Footer/index';
 import Header from '@/components/Header';
 import ProjectBanner from './components/ProjectBanner';
 import DetailCard from './components/DetailCard';
@@ -114,7 +114,7 @@ const Project = (projectInfo: ProjectProps) => {
           id="results"
           ref={resultsRef}
         >
-          <div className="flex flex-col items-center p-2 pt-8 md:pt-16 lg:max-w-[1140px]">
+          <div className="flex flex-col items-center p-2 pt-8 md:pt-16 lg:max-w-[1140px] z-20">
             <header className="mb-10 flex flex-col text-center">
               <div className="text-sm font-bold text-terra-blue">RESULTADOS</div>
               <h2 className="m-auto mb-2 w-full text-3xl font-bold text-title-gray md:w-[35rem]">

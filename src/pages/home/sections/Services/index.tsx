@@ -1,4 +1,4 @@
-import Card from '../../components/Card';
+import Card from '../../../../components/Card';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useLandingVideoContext } from '@/contexts/LandingVideoContext';

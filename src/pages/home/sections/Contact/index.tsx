@@ -1,6 +1,6 @@
-import LinkButton from '../../components/LinkButton';
+import LinkButton from '../../../../components/LinkButton';
 import { useEffect, useState } from 'react';
-import Input from '../../components/Input';
+import Input from '../../../../components/Input';
 import { useInView } from 'react-intersection-observer';
 import { useLandingVideoContext } from '@/contexts/LandingVideoContext';
 
