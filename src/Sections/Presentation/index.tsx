@@ -12,22 +12,23 @@ const Presentation = () => {
 
   return (
     <section
-      className="m-auto flex flex-wrap justify-center p-2 pt-[7rem] pb-[6rem] sm:max-w-[540px] lg:max-w-[1140px]"
+      className="m-auto flex flex-wrap items-center justify-center p-2 pt-[7rem] pb-[6rem] sm:max-w-[540px] lg:max-w-[1140px]"
       id="presentation"
       ref={ref}
     >
-      <div className="mb-14 mr-4 w-full lg:w-[40%]">
-        <div className="text-sm font-bold text-terra-blue">TERRA AZUL</div>
-        <h2 className="mb-10 font-[Montserrat] text-3xl text-title-gray">
-          Ofrecemos servicios de alta calidad
-        </h2>
+      <div className="mb-14 mr-4 h-full w-full lg:w-[40%]">
+        <header className="mb-10 flex flex-col">
+          <div className="text-sm font-bold text-terra-blue">TERRA AZUL</div>
+          <h2 className="m-auto mb-1 w-full text-3xl font-bold text-title-gray">
+            Ofrecemos servicios de alta calidad
+          </h2>
+        </header>
         <p className="mb-2 text-body-gray">
           TERRA AZUL se ha constituido como una empresa de servicios especializados en
           arquitectura que cuenta con los más altos estándares de calidad, seguridad,
           tecnología, recurso humano profesional y capacitado permanentemente, con el fin
           de garantizar a nuestros clientes una satisfacción total en nuestro trabajo.
         </p>
-        {/* <div className="text-lg font-bold text-title-gray">Javier Niebles - CEO</div> */}
       </div>
       <div className="w-full p-2 lg:w-1/2">
         <img

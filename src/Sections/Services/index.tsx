@@ -25,7 +25,7 @@ const Services = (): JSX.Element => {
       <div className="z-20 flex flex-col sm:max-w-[540px] lg:max-w-[1140px]">
         <header className="mb-10 flex flex-col text-center">
           <div className="text-sm font-bold text-terra-blue">SERVICIOS</div>
-          <h2 className="m-auto mb-2 w-full font-[Montserrat] text-3xl text-title-gray md:w-[35rem]">
+          <h2 className="m-auto mb-2 w-full text-3xl font-bold text-title-gray md:w-[35rem]">
             Selecciona el paquete de servicios que se acomode a tu necesidad
           </h2>
         </header>

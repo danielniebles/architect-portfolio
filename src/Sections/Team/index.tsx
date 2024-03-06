@@ -19,7 +19,7 @@ const Team = () => {
       <div className="z-20 flex w-full flex-col sm:max-w-[540px] lg:max-w-[1140px]">
         <header className="mb-10 flex flex-col text-center">
           <div className="text-sm font-bold text-terra-blue">PERSONAS</div>
-          <h2 className="m-auto mb-2 w-full font-[Montserrat] text-3xl text-title-gray md:w-[35rem]">
+          <h2 className="m-auto mb-2 w-full text-3xl font-bold text-title-gray md:w-[35rem]">
             Conoce al equipo
           </h2>
           <p className="text-base text-body-gray">
@@ -32,7 +32,7 @@ const Team = () => {
               <img
                 src="assets/profile/maribel.jpeg"
                 alt=""
-                className="grayscale h-auto max-w-full object-cover"
+                className="h-auto max-w-full object-cover grayscale"
               />
             </div>
             <div className="mt-6 font-[Montserrat] text-base font-bold text-title-gray">
