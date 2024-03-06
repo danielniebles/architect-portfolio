@@ -70,11 +70,11 @@ const Contact = (): JSX.Element => {
           <div className="flex items-center text-xl text-white">
             <a
               className="text link flex items-center"
-              href="https://twitter.com/terraazul_co"
+              href="https://www.facebook.com/TerraAzulSAS"
               target="_blank"
             >
-              <i className="uil uil-twitter-alt mr-3 text-2xl text-terra-green"></i>
-              terraazul_co
+              <i className="uil uil-facebook mr-3 text-2xl text-terra-green"></i>
+              TerraAzul
             </a>
           </div>
           <div className="flex items-center text-white">

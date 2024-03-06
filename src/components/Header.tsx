@@ -24,6 +24,7 @@ const Header = ({
   const [showMenu, setShowMenu] = useState(false);
   const isMobile = useIsMobile();
 
+  //TODO: make this one method
   const handleShowMenu = () => {
     setShowMenu(true);
   };
@@ -49,7 +50,7 @@ const Header = ({
           : 'pt-7 backdrop-blur-sm '
       }`}
     >
-      <nav className="m-[auto] flex items-center justify-between md:max-w-[1140px]">
+      <nav className="m-[auto] flex items-center justify-between md:max-w-[1240px]">
         <Link to="/">
           <img src="/assets/logo_terra.svg" className="ml-4 h-12"></img>
         </Link>

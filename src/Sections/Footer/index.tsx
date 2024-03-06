@@ -5,9 +5,13 @@ const Footer = (): JSX.Element => {
         <div>
           <h2 className={`text-lg font-semibold md:text-xl`}>Terra Azul</h2>
           <p>Es una marca registrada de:</p>
-          <div className="mt-4 flex justify-center">
+          <a
+            className="mt-4 flex justify-center"
+            href="https://www.linkedin.com/in/javierniebles/"
+            target="_blank"
+          >
             <img className="h-[80px]" src="/assets/JN/main_logo.svg" alt="" />
-          </div>
+          </a>
         </div>
         <div className="grid grid-cols-3 gap-1">
           <a className="text link" href="https://wa.me/573113988081" target="_blank">
@@ -16,8 +20,8 @@ const Footer = (): JSX.Element => {
           <a href="https://www.instagram.com/terraazulco" target="_blank">
             <i className="uil uil-instagram text-xl font-normal"></i>
           </a>
-          <a href="https://twitter.com/terraazul_co" target="_blank">
-            <i className="uil uil-twitter-alt text-xl font-normal"></i>
+          <a href="https://www.facebook.com/TerraAzulSAS" target="_blank">
+            <i className="uil uil-facebook text-xl font-normal"></i>
           </a>
         </div>
       </div>

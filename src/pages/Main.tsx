@@ -25,6 +25,7 @@ export default function Main() {
             link: '#presentation',
           },
           { displayName: 'Servicios', name: 'services', link: '#services' },
+          { displayName: 'Proyectos', name: 'projects', link: '#projects' },
           { displayName: 'Contáctanos', name: 'contact', link: '#contact' },
           { displayName: 'Nosotros', name: 'team', link: '#team' },
         ]}
@@ -33,7 +34,7 @@ export default function Main() {
         <Banner />
         <Presentation />
         <Services />
-        <section className="flex w-full flex-col items-center justify-center p-2 pt-[7rem] pb-[7rem]">
+        <section className="flex w-full flex-col items-center justify-center p-2 pt-[7rem] pb-[7rem]" id='projects'>
           <div className="sm:max-w-[720px] md:max-w-[1140px]">
             <header className="mb-10 flex flex-col text-center">
               <div className="text-sm font-bold text-terra-blue">RESULTADOS</div>
