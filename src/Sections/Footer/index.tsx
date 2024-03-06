@@ -1,15 +1,12 @@
-import Title from '../../components/Title';
-
 const Footer = (): JSX.Element => {
   return (
-    <footer className="footer flex flex-col items-center bg-terra-green-700 py-10 w-full">
+    <footer className="footer flex w-full flex-col items-center bg-terra-green-700 py-10">
       <div className="grid grid-cols-2 gap-10 py-10 px-4 text-white">
         <div>
-          <Title>Terra Azul</Title>
+          <h2 className={`text-lg font-semibold md:text-xl`}>Terra Azul</h2>
           <p>Es una marca registrada de:</p>
-          <div className='flex justify-center mt-4'>
-
-          <img className='h-[80px]' src="/assets/JN/main_logo.svg" alt="" />
+          <div className="mt-4 flex justify-center">
+            <img className="h-[80px]" src="/assets/JN/main_logo.svg" alt="" />
           </div>
         </div>
         <div className="grid grid-cols-3 gap-1">
@@ -24,7 +21,7 @@ const Footer = (): JSX.Element => {
           </a>
         </div>
       </div>
-      <p className='text-white'>&#169; Todos los derechos reservados</p>
+      <p className="text-white">&#169; Todos los derechos reservados</p>
     </footer>
   );
 };

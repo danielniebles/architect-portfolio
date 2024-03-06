@@ -1,5 +1,4 @@
 import LinkButton from './LinkButton';
-import './index.css';
 import Leaf from './Leaf';
 
 interface CardProps {
