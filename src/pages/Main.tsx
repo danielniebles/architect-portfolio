@@ -43,7 +43,7 @@ export default function Main() {
             </header>
             <div className="flex flex-wrap gap-20 md:justify-between">
               {PROJECTS.map((project) => (
-                <ProjectCard {...project} />
+                <ProjectCard {...project} key={project.name} />
               ))}
             </div>
           </div>

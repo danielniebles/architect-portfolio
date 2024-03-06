@@ -50,7 +50,7 @@ const ThumbsSwiper = ({ backgroundColor, children, thumbnailUrl }: ThumbsSwiperP
         className="m-4 max-h-[180px] max-w-2xl"
       >
         {thumbnailUrl.map((url) => (
-          <SwiperSlide className="aspect-square">
+          <SwiperSlide className="aspect-square" key={url}>
             <img className="h-full w-full rounded-xl object-cover" src={url} />
           </SwiperSlide>
         ))}

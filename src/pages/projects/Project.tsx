@@ -57,6 +57,10 @@ const Project = (projectInfo: ProjectProps) => {
   const { ref: socialRef, inView: socialInView } = useInView({ threshold: 1 });
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     setSectionInView(homeInView ? 'home' : '');
   }, [homeInView]);
 
@@ -122,7 +126,7 @@ const Project = (projectInfo: ProjectProps) => {
               backgroundColor="bg-terra-green-300"
             >
               {photos.map(({ name, type }) => (
-                <aside className="relative h-full">
+                <aside className="relative h-full" key={name}>
                   <img
                     className="h-full w-full rounded-xl  object-cover"
                     src={`${BASE_URL}/${name}`}
@@ -139,7 +143,7 @@ const Project = (projectInfo: ProjectProps) => {
           </div>
         </section>
         <img
-          src="assets/leafs.svg"
+          src="/assets/leafs.svg"
           className="absolute -left-[1%] top-[10%] h-[1000px] w-auto md:top-[70%]"
           alt=""
         />
