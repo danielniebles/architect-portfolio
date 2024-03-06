@@ -11,7 +11,7 @@ interface CardProps {
 
 const Card = ({ imageUrl, text, title, list = [] }: CardProps): JSX.Element => {
   return (
-    <div className="relative m-4 h-[600px] w-full  bg-white lg:w-[340px]">
+    <div className="relative m-4 h-[600px] w-full bg-white lg:w-[340px]">
       <div className="h-[300px] overflow-hidden">
         <img
           src={imageUrl}
