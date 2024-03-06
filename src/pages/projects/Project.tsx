@@ -77,16 +77,16 @@ const Project = (projectInfo: ProjectProps) => {
       <Header
         sectionInView={sectionInView}
         links={[
-          { displayName: 'Inicio', name: 'home', link: `/project/${routeName}#home` },
+          { displayName: 'Inicio', name: 'home', link: `/proyectos/${routeName}#home` },
           {
             displayName: 'Resultados',
             name: 'results',
-            link: `/project/${routeName}#results`,
+            link: `/proyectos/${routeName}#results`,
           },
           {
             displayName: 'Social',
             name: 'social',
-            link: `/project/${routeName}#social`,
+            link: `/proyectos/${routeName}#social`,
           },
         ]}
         transparent={false}

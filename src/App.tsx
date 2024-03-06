@@ -15,7 +15,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<Main />}></Route>
-      <Route path="/project/parroquia-jcr" element={<Project {...PJR} />}></Route>
+      <Route path="/proyectos/parroquia-jcr" element={<Project {...PJR} />}></Route>
     </>
   )
 );

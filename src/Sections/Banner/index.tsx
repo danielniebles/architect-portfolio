@@ -26,7 +26,7 @@ const Banner = (): JSX.Element => {
           <p className="m-[auto] pt-6 text-white md:w-[35rem]">
             Un proyecto para la comunidad religiosa del barrio Mazurén
           </p>
-          <LinkButton customClass="mt-6" link="/project/parroquia-jcr" target="_self">
+          <LinkButton customClass="mt-6" link="/proyectos/parroquia-jcr" target="_self">
             Saber más
           </LinkButton>
         </div>

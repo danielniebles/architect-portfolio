@@ -17,7 +17,7 @@ const ProjectCard = ({ name, finished, image }: ProjectCard) => {
       />
       <p className="my-4 h-12 flex flex-col justify-center font-bold text-title-gray">{name}</p>
       {finished ? (
-        <LinkButton link="/project/parroquia-jcr#home" target="_self">
+        <LinkButton link="/proyectos/parroquia-jcr#home" target="_self">
           Saber más
         </LinkButton>
       ) : (
