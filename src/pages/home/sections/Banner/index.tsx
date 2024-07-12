@@ -1,35 +1,56 @@
-import LinkButton from 'src/components/LinkButton';
 import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLandingVideoContext } from '@/contexts/LandingVideoContext';
+import useIsMobile from '@/hooks/useIsMobile';
+import { helix } from 'ldrs';
+import { getNextValidAspectRatio } from '@/utils';
 
+helix.register();
 
 const Banner = (): JSX.Element => {
   const { ref, inView } = useInView({ threshold: 1 });
   const { setSectionInView } = useLandingVideoContext();
+  const [loading, setLoading] = useState(true);
+  const isMobile = useIsMobile();
+  const { height } = getNextValidAspectRatio(
+    document.documentElement.clientWidth,
+    document.documentElement.clientHeight,
+    1080
+  );
+  const videoRef = useRef<HTMLVideoElement>();
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    const handleCanPlay = () => setLoading(false);
+    if (!video) return;
+
+    video.addEventListener('canplay', handleCanPlay);
+    return () => {
+      video.removeEventListener('canplay', handleCanPlay);
+    };
+  }, []);
 
   useEffect(() => {
     setSectionInView(inView ? 'banner' : '');
   }, [inView]);
 
   return (
-    <section className="relative w-full" id="home" ref={ref}>
+    <section className={`relative w-full `} id="home" ref={ref}>
       <div
-        className="relative flex h-[600px] w-full items-center justify-center
-      bg-[url(https://terra-azul-s3.s3.amazonaws.com/finished-projects/panoramic.jpg)] bg-cover bg-center text-center md:h-[1000px]"
+        className={`relative flex w-full items-center justify-center bg-[#efefef] text-center`}
+        style={{ height }}
       >
-        <div className="bg-red absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-[rgba(0,0,0,0.6)] "></div>
-        <div className="z-20 flex w-full flex-col items-center justify-center sm:max-w-[720px] md:max-w-[1140px]">
-          <h2 className="inline-block text-4xl text-white md:text-5xl font-semibold">
-            Finalizó la renovación de la Parroquia Jesucristo Redentor
-          </h2>
-          <p className="m-[auto] pt-6 text-white md:w-[35rem]">
-            Un proyecto para la comunidad religiosa del barrio Mazurén
-          </p>
-          <LinkButton customClass="mt-6" link="/proyectos/parroquia-jcr" target="_self">
-            Saber más
-          </LinkButton>
-        </div>
+        {loading && <l-helix size="45" speed="2.5" color="#007d9a" />}
+        <video
+          className={`max-h-screen ${isMobile ? 'pt-[76px]' : ''}`}
+          muted
+          autoPlay
+          loop
+          ref={videoRef as React.MutableRefObject<HTMLVideoElement>}
+        >
+          <source src="/assets/banner_video.mp4" type="video/mp4" />
+        </video>
       </div>
     </section>
   );

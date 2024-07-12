@@ -45,7 +45,7 @@ const Header = ({
     <header
       className={`fixed top-0 z-50 w-full pb-2 shadow-xl transition-all duration-500
       ${
-        isScrolled || !transparent
+        isScrolled || !transparent || isMobile
           ? 'bg-white pt-5 text-white shadow-xl'
           : 'pt-7 backdrop-blur-sm '
       }`}
@@ -95,7 +95,7 @@ const Header = ({
         <button className="mr-4 md:hidden" onClick={() => handleShowMenu()}>
           <i
             className={`uil uil-bars text-2xl font-normal ${
-              isScrolled || !transparent ? 'text-gray-800' : 'text-white'
+              isScrolled || isMobile|| !transparent ? 'text-gray-800' : 'text-white'
             }`}
           ></i>
         </button>
