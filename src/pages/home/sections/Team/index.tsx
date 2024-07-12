@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useLandingVideoContext } from '@/contexts/LandingVideoContext';
 
+//TODO: Move the card to a component
 const Team = () => {
   const { ref, inView } = useInView({ threshold: 1 });
   const { setSectionInView } = useLandingVideoContext();
@@ -27,7 +28,7 @@ const Team = () => {
           </p>
         </header>
         <div className="flex flex-wrap justify-center gap-20">
-          <div className="flex flex-col text-center">
+          <div className="flex flex-col text-center items-center">
             <div className="h-[200px] w-[200px] overflow-hidden">
               <img
                 src="assets/profile/maribel.jpeg"
@@ -39,6 +40,19 @@ const Team = () => {
               Maribel Soler
             </div>
             <div className="text-base text-title-gray">Gerente comercial</div>
+          </div>
+          <div className="flex flex-col text-center items-center">
+            <div className="h-[200px] w-[200px] overflow-hidden">
+              <img
+                src="assets/profile/Marisol.png"
+                alt=""
+                className="h-auto max-w-full object-cover grayscale"
+              />
+            </div>
+            <div className="mt-6 font-[Montserrat] text-base font-bold text-title-gray">
+              Marisol Duarte Castro
+            </div>
+            <div className="text-base text-title-gray">Consultora Comercial y de Ventas</div>
           </div>
         </div>
       </div>
