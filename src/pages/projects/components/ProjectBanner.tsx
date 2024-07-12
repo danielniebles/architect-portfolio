@@ -12,9 +12,10 @@ const ProjectBanner = ({ backgroundUrl, name }: ProjectBannerProps) => {
       id="home"
     >
       <div
-        className={`flex h-[300px] w-full items-end justify-start rounded-xl bg-[url(${backgroundUrl})] bg-bottom bg-repeat`}
+        className={`relative h-[300px] w-full items-end justify-start rounded-xl bg-repeat bg-center`}
+        style={{ backgroundImage: `url(${backgroundUrl})` }}
       >
-        <footer className="w-full rounded-xl bg-gradient-to-b from-transparent to-black">
+        <footer className="absolute bottom-0 w-full rounded-xl bg-gradient-to-b from-transparent to-black">
           <h1 className="p-5 text-2xl text-white">{name}</h1>
         </footer>
       </div>

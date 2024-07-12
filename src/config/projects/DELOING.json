@@ -1,0 +1,32 @@
+{
+  "projectName": "Deloing Zona Franca",
+  "photos": [
+    {
+      "name": "deloing-salon-antes.jpeg",
+      "type": "before"
+    },
+    {
+      "name": "deloing-salon-despues.jpg",
+      "type": "after"
+    },
+    {
+      "name": "deloing-oficina-antes.jpg",
+      "type": "before"
+    },
+    {
+      "name": "deloing-oficina-despues.jpg",
+      "type": "after"
+    }
+  ],
+  "description": "Deloing, una empresa de logistica aduanera, ha venido en un proceso de crecimiento avanzado que ha requerido la adaptación de nuevos, amplios y confortables espacios de trabajo para desarrollar sus tareas diarias, así como también atender a sus clientes. Bajo esta necesidad, Deloing nos ha encargado la remodelación y adaptación de sus oficinas y bodegas ubicadas en la Zona Franca de la ciudad de Bogotá.",
+  "projectDetails": {
+    "responsible": "Arq. Javier Niebles",
+    "city": "Bogotá",
+    "neighborhood": "Zona Franca",
+    "area": "2700 m²",
+    "year": "2024"
+  },
+  "bannerUrl": "https://terra-azul-s3.s3.amazonaws.com/finished-projects/deloing_panoramic.jpg",
+  "instagramReelUrl": "https://www.instagram.com/reel/C3lcuq8pTZQ/?utm_source=ig_web_copy_link",
+  "routeName": "deloing"
+}

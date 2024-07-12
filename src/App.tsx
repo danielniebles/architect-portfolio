@@ -1,6 +1,5 @@
 import './index.css';
 import {
-  BrowserRouter,
   createBrowserRouter,
   createRoutesFromElements,
   Route,
@@ -9,6 +8,7 @@ import {
 import Home from './pages/home/Home';
 import Project from './pages/projects/Project';
 import PJR from '@/config/projects/PJR.json';
+import DELOING from '@/config/projects/DELOING.json';
 import { LandingVideoProvider } from './contexts/LandingVideoContext';
 
 const router = createBrowserRouter(
@@ -16,6 +16,7 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={<Home />}></Route>
       <Route path="/proyectos/parroquia-jcr" element={<Project {...PJR} />}></Route>
+      <Route path="/proyectos/deloing" element={<Project {...DELOING} />}></Route>
     </>
   )
 );
