@@ -46,6 +46,7 @@ const Banner = (): JSX.Element => {
           muted
           autoPlay
           loop
+          playsInline
           ref={videoRef as React.MutableRefObject<HTMLVideoElement>}
         >
           <source src="/assets/banner_video.mp4" type="video/mp4" />
