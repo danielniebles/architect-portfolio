@@ -39,7 +39,6 @@ const Banner = (): JSX.Element => {
     <section className={`relative w-full `} id="home" ref={ref}>
       <div
         className={`relative flex w-full items-center justify-center bg-[#efefef] text-center`}
-        style={{ height }}
       >
         {loading && <l-helix size="45" speed="2.5" color="#007d9a" />}
         <video

@@ -16,10 +16,12 @@ const LandingVideoProvider = ({ children }: any) => {
   const [sectionInView, setSectionInView] = useState('');
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     const landingVideoEl = document.getElementById('landing') as HTMLElement;
     const onEndedHandler = () => {
       landingVideoEl.remove();
       setIsMainPageVisible(true);
+      document.body.style.overflow = "auto";
     };
     landingVideoEl.addEventListener('ended', onEndedHandler, false);
 
@@ -34,7 +36,7 @@ const LandingVideoProvider = ({ children }: any) => {
     >
       <div className="relative">
         <VideoDrape isVisible={isMainPageVisible} />
-        {isMainPageVisible && children}
+        {children}
       </div>
     </LandingVideoContext.Provider>
   );
